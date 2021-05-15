@@ -1,6 +1,6 @@
 package com.esperanca.projeto.dominio;
 
-import com.esperanca.projeto.dominio.Cliente;
+import com.esperanca.projeto.model.Cliente;
 
 
 public class Consumo {

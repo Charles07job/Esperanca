@@ -1,4 +1,4 @@
-package com.esperanca.projeto.dominio;
+package com.esperanca.projeto.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -17,7 +17,7 @@ public class Cliente implements Serializable {
 	private String cpf;
 	private String escolaridade;
 	private float salario;
-	public Integer pontuacao;
+	
 	
 	public Cliente() {
 	}
@@ -59,14 +59,6 @@ public class Cliente implements Serializable {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-
-	public Integer getPontuacao() {
-		return pontuacao;
-	}
-
-	public void setPontuacao(Integer pontuacao) {
-		this.pontuacao = pontuacao;
 	}
 
 	@Override
