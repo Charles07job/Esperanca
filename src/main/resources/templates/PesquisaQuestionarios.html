@@ -1,0 +1,79 @@
+<!-- 
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="LayoutPadrao.html">
+    
+<head>
+	<title>Pesquisa de Clientes</title>
+</head>
+
+<section layout:fragment="conteudo">
+<div layout:insert="MensagemGeral"></div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="clearfix">
+	   			<h1 class="panel-title titulo-panel ">Pesquisa de Clientes</h1>
+                <a class="btn btn-link link-panel" th:href="@{/clientes/novo}">Novo Cliente</a>
+	   		</div>
+	   	</div>
+	   	
+	   	<div class="panel-body" >
+	   	<form method="GET" class="form-horizontal" th:action="@{/clientes}" th:object="${filtro}">
+	   			<div class="form-group">
+	   				<div class="col-sm-4">
+	   					<div class="input-group">
+	   						<input class="form-control" placeholder="Qual Cliente você está procurando?"
+	   							autofocus="autofocus" th:field="*{cpf}"></input>
+	   						<span class="input-group-btn">
+	   							<button type="submit" class="btn btn-default">
+	   								<i class="glyphicon glyphicon-search"></i>
+	   							</button>
+	   						</span>
+	   					</div>
+	   				</div>
+	   			</div>
+	   		</form>
+	   	<table class="table table-striped table-bordered datatable display" id="tabelaClientes">
+      			<thead>
+      			
+      				<tr>
+      					<th class="text-center col-md-1">#</th>
+      					<th class="text-center col-md-3">Nome</th>
+      					<th class="text-center col-md-1">CPF</th>
+      					<th class="text-center col-md-1">Escolaridade</th>
+      					<th class="text-center col-md-1">Salario</th>
+      					<th class="col-md-1"></th>
+      				</tr>
+      			</thead>
+      			<tbody>
+      				<tr th:each="cliente : ${clientes}">
+      					<td class="text-center" th:text="${cliente.id}"></td>
+      					<td th:text="${cliente.nome}"></td>
+						<td th:text="${cliente.cpf}"></td>
+						<td th:text="${cliente.escolaridade}"></td>
+      					<td class="text-right" th:text="|R$ ${{cliente.salario}}|"></td>
+      					<td class="text-center">
+	   						<a class="btn btn-link btn-xs" th:href="@{/clientes/{id}(id=${cliente.id})}" th:attr="data-codigo=${cliente.id}"
+	   							title="Editar" rel="tooltip" data-placement="top">
+	   							<span class="glyphicon glyphicon-pencil"></span>
+	   						</a>
+	   						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
+	   								th:attr="data-codigo=${cliente.id}, data-descricao=${cliente.nome}"
+	   								title="Excluir" rel="tooltip" data-placement="top">
+	   								
+	   							<span class="glyphicon glyphicon-trash"></span>
+	   						</a>
+	   					</td>
+      				</tr>
+      				<tr th:if="${#lists.isEmpty(clientes)}">
+      					<td colspan="9">Nenhum cliente foi encontrado</td>
+      				</tr>
+      			</tbody>
+      		</table>
+	   	</div>
+	   	<div layout:include="DialogoConfirmacaoExclusao"></div>
+	</div>
+</section>
+
+</html>
+-->
