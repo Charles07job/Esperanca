@@ -62,9 +62,9 @@ public class ClienteController {
 		return mv;
 	}
 	
-	@RequestMapping(value="{codigo}", method = RequestMethod.DELETE)
-	public String excluir(@PathVariable Cliente cliente, RedirectAttributes attributes) {
-		clienteService.excluir(cliente);
+	@RequestMapping(value="/{codigo}", method = RequestMethod.DELETE)
+	public String excluir(@PathVariable Long codigo, RedirectAttributes attributes) {
+		clienteService.excluir(codigo);
 		
 		attributes.addFlashAttribute("mensagem", "Cliente excluído com sucesso!");
 		return "redirect:/clientes";

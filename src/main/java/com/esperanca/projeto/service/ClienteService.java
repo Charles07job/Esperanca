@@ -17,8 +17,8 @@ public class ClienteService {
         repository.save(cliente);
     }
 
-    public void excluir(Cliente cliente) {
-        repository.delete(cliente);
+    public void excluir(Long id) {
+        repository.deleteById(id);
     }
 
     public List<Cliente> filtrar(ClienteFilter filtro) {

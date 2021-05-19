@@ -17,7 +17,7 @@ public class Cliente implements Serializable {
 	private String nome;
 	private String cpf;
 	private String escolaridade;
-	private float salario;
+	private double salario;
 
 	public Long getId() {
 		return id;
@@ -51,11 +51,11 @@ public class Cliente implements Serializable {
 		this.escolaridade = escolaridade;
 	}
 
-	public float getSalario() {
+	public double getSalario() {
 		return salario;
 	}
-
-	public void setSalario(float salario) {
+	
+	public void setSalario(double salario) {
 		this.salario = salario;
 	}
 
