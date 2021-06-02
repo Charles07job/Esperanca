@@ -1,6 +1,7 @@
 package com.esperanca.projeto.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,47 +13,28 @@ public class Cliente implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String nome;
 	private String cpf;
 	private String escolaridade;
-	private float salario;
-	
-	
-	public Cliente() {
-	}
-	
-	public Cliente(Integer id, String cpf) {
-		super();
-		this.id = id;
-		this.cpf = cpf;
-	}
+	private double salario;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getEscolaridade() {
-		return escolaridade;
-	}
-	public void setEscolaridade(String escolaridade) {
-		this.escolaridade = escolaridade;
-	}
-	public float getSalario() {
-		return salario;
-	}
-	public void setSalario(float salario) {
-		this.salario = salario;
-	}
-	
+
 	public String getCpf() {
 		return cpf;
 	}
@@ -61,28 +43,32 @@ public class Cliente implements Serializable {
 		this.cpf = cpf;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cliente other = (Cliente) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+	public String getEscolaridade() {
+		return escolaridade;
 	}
 
+	public void setEscolaridade(String escolaridade) {
+		this.escolaridade = escolaridade;
+	}
+
+	public double getSalario() {
+		return salario;
+	}
+	
+	public void setSalario(double salario) {
+		this.salario = salario;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Cliente cliente = (Cliente) o;
+		return Objects.equals(id, cliente.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
 }

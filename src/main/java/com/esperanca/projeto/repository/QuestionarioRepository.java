@@ -1,11 +1,10 @@
 package com.esperanca.projeto.repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public class QuestionarioRepository {
+import com.esperanca.projeto.model.Questionario;
 
-	@PersistenceContext
-	private EntityManager entityManager;
-
+@Repository
+public interface QuestionarioRepository extends JpaRepository<Questionario, Long> {
 }

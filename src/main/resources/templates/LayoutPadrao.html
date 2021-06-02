@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8" />
+<title>Esperança</title>
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/datepicker.standalone.min.css}" />
+</head>
+<body>
+	<header layout:insert="Cabecalho"></header>
+
+	<section layout:fragment="conteudo" class="conteudo">
+		<p>Conteúdo principal</p>
+	</section>
+
+	
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/jquery.maskMoney.min.js}"></script>
+	<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+	<script th:src="@{/js/cobranca.js}"></script>
+<script>
+		$(document).ready(function() {
+			$('#tabelaClientes').DataTable( {
+		        "paging":   false,
+		        "ordering": true,
+		        "info":     false
+		    } );
+		    $('#tabelaQuestionarios').DataTable( {
+		        "paging":   false,
+		        "ordering": true,
+		        "info":     false
+		    } );
+		});
+	</script>
+</body>
+</html>
