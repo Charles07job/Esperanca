@@ -45,7 +45,7 @@
                 <div class="form-group" th:classappend="${#fields.hasErrors('salario')} ? has-error">
 					<label for="salario" class="col-sm-2 control-label">Salário</label>
 					<div class="col-sm-2">   
-						<input type="text" class="form-control js-currency" id="salario" th:field="*{salario}" />
+						<input type="number"  class="form-control js-currency" id="salario" th:field="*{salario}" />
 					</div>
 				</div>
 

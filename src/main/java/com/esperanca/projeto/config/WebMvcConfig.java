@@ -30,9 +30,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addRedirectViewController("/", "/home");
     }
     
-	@Bean
-	public LocaleResolver localeResolver() {
-		return new FixedLocaleResolver(new Locale("pt", "BR"));
-	}
-    
+//	@Bean
+//	public LocaleResolver localeResolver() {
+//		return new FixedLocaleResolver(new Locale("pt", "BR"));
+//	}
+//    
 }
