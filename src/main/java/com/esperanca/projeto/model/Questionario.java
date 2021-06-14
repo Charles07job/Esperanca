@@ -12,6 +12,8 @@ public class Questionario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer garrafaPet;
+    private Double media;
+    private Double total;
     private boolean coletaSeletiva;
     private boolean campanhaAmbiental;
     private boolean campanhaContraPoluicao;
@@ -27,8 +29,26 @@ public class Questionario implements Serializable {
     private boolean canudosPlaticos;
     private boolean energiaAlternativa;
     private boolean caronaSolidaria;
+
     @OneToOne
     private Cliente cliente;
+
+
+    public Double getMedia() {
+        return media;
+    }
+
+    public void setMedia(Double media) {
+        this.media = media;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
+    }
 
     public Long getId() {
         return id;
