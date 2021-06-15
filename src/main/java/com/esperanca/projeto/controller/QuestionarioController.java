@@ -38,6 +38,7 @@ public class QuestionarioController {
         if (errors.hasErrors()) {
             return CADASTRO_QUESTIONARIO_VIEW;
         }
+        System.out.println(questionario);
         questionarioService.salvar(questionario);
         attributes.addFlashAttribute("mensagem", "Questionario salvo com sucesso!");
         return "redirect:/questionarios/novo";

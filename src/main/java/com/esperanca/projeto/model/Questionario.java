@@ -11,28 +11,24 @@ public class Questionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Integer garrafaPet;
     private Double media;
     private Double total;
-    private boolean coletaSeletiva;
-    private boolean campanhaAmbiental;
-    private boolean campanhaContraPoluicao;
-    private boolean campanhaReflorestamento;
-    private boolean doacaoEmProlMeioAmbiente;
-    private boolean utilizaSacolaPlastica;
-    private boolean equipamentoSeloEnergia;
-    private boolean consumoDeAgua;
-    private boolean alimentosAgro;
-    private boolean taxaLimpezaRios;
-    private boolean utilizaCaneca;
-    private boolean talheresPlasticos;
-    private boolean canudosPlaticos;
-    private boolean energiaAlternativa;
-    private boolean caronaSolidaria;
+    private Double coletaSeletiva;
+    private Double campanhaContraPoluicao;
+    private Double campanhaReflorestamento;
+    private Double consumoDeAgua;
+    private Double utilizaSacolaPlastica;
 
     @OneToOne
     private Cliente cliente;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Double getMedia() {
         return media;
@@ -50,140 +46,44 @@ public class Questionario implements Serializable {
         this.total = total;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Integer getGarrafaPet() {
-        return garrafaPet;
-    }
-
-    public void setGarrafaPet(Integer garrafaPet) {
-        this.garrafaPet = garrafaPet;
-    }
-
-    public boolean isColetaSeletiva() {
+    public Double getColetaSeletiva() {
         return coletaSeletiva;
     }
 
-    public void setColetaSeletiva(boolean coletaSeletiva) {
+    public void setColetaSeletiva(Double coletaSeletiva) {
         this.coletaSeletiva = coletaSeletiva;
     }
 
-    public boolean isCampanhaAmbiental() {
-        return campanhaAmbiental;
-    }
-
-    public void setCampanhaAmbiental(boolean campanhaAmbiental) {
-        this.campanhaAmbiental = campanhaAmbiental;
-    }
-
-    public boolean isCampanhaContraPoluicao() {
+    public Double getCampanhaContraPoluicao() {
         return campanhaContraPoluicao;
     }
 
-    public void setCampanhaContraPoluicao(boolean campanhaContraPoluicao) {
+    public void setCampanhaContraPoluicao(Double campanhaContraPoluicao) {
         this.campanhaContraPoluicao = campanhaContraPoluicao;
     }
 
-    public boolean isCampanhaReflorestamento() {
+    public Double getCampanhaReflorestamento() {
         return campanhaReflorestamento;
     }
 
-    public void setCampanhaReflorestamento(boolean campanhaReflorestamento) {
+    public void setCampanhaReflorestamento(Double campanhaReflorestamento) {
         this.campanhaReflorestamento = campanhaReflorestamento;
     }
 
-    public boolean isDoacaoEmProlMeioAmbiente() {
-        return doacaoEmProlMeioAmbiente;
-    }
-
-    public void setDoacaoEmProlMeioAmbiente(boolean doacaoEmProlMeioAmbiente) {
-        this.doacaoEmProlMeioAmbiente = doacaoEmProlMeioAmbiente;
-    }
-
-    public boolean isUtilizaSacolaPlastica() {
-        return utilizaSacolaPlastica;
-    }
-
-    public void setUtilizaSacolaPlastica(boolean utilizaSacolaPlastica) {
-        this.utilizaSacolaPlastica = utilizaSacolaPlastica;
-    }
-
-    public boolean isEquipamentoSeloEnergia() {
-        return equipamentoSeloEnergia;
-    }
-
-    public void setEquipamentoSeloEnergia(boolean equipamentoSeloEnergia) {
-        this.equipamentoSeloEnergia = equipamentoSeloEnergia;
-    }
-
-    public boolean isConsumoDeAgua() {
+    public Double getConsumoDeAgua() {
         return consumoDeAgua;
     }
 
-    public void setConsumoDeAgua(boolean consumoDeAgua) {
+    public void setConsumoDeAgua(Double consumoDeAgua) {
         this.consumoDeAgua = consumoDeAgua;
     }
 
-    public boolean isAlimentosAgro() {
-        return alimentosAgro;
+    public Double getUtilizaSacolaPlastica() {
+        return utilizaSacolaPlastica;
     }
 
-    public void setAlimentosAgro(boolean alimentosAgro) {
-        this.alimentosAgro = alimentosAgro;
-    }
-
-    public boolean isTaxaLimpezaRios() {
-        return taxaLimpezaRios;
-    }
-
-    public void setTaxaLimpezaRios(boolean taxaLimpezaRios) {
-        this.taxaLimpezaRios = taxaLimpezaRios;
-    }
-
-    public boolean isUtilizaCaneca() {
-        return utilizaCaneca;
-    }
-
-    public void setUtilizaCaneca(boolean utilizaCaneca) {
-        this.utilizaCaneca = utilizaCaneca;
-    }
-
-    public boolean isTalheresPlasticos() {
-        return talheresPlasticos;
-    }
-
-    public void setTalheresPlasticos(boolean talheresPlasticos) {
-        this.talheresPlasticos = talheresPlasticos;
-    }
-
-    public boolean isCanudosPlaticos() {
-        return canudosPlaticos;
-    }
-
-    public void setCanudosPlaticos(boolean canudosPlaticos) {
-        this.canudosPlaticos = canudosPlaticos;
-    }
-
-    public boolean isEnergiaAlternativa() {
-        return energiaAlternativa;
-    }
-
-    public void setEnergiaAlternativa(boolean energiaAlternativa) {
-        this.energiaAlternativa = energiaAlternativa;
-    }
-
-    public boolean isCaronaSolidaria() {
-        return caronaSolidaria;
-    }
-
-    public void setCaronaSolidaria(boolean caronaSolidaria) {
-        this.caronaSolidaria = caronaSolidaria;
+    public void setUtilizaSacolaPlastica(Double utilizaSacolaPlastica) {
+        this.utilizaSacolaPlastica = utilizaSacolaPlastica;
     }
 
     public Cliente getCliente() {
@@ -205,5 +105,20 @@ public class Questionario implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Questionario{" +
+                "id=" + id +
+                ", media=" + media +
+                ", total=" + total +
+                ", coletaSeletiva=" + coletaSeletiva +
+                ", campanhaContraPoluicao=" + campanhaContraPoluicao +
+                ", campanhaReflorestamento=" + campanhaReflorestamento +
+                ", consumoDeAgua=" + consumoDeAgua +
+                ", utilizaSacolaPlastica=" + utilizaSacolaPlastica +
+                ", cliente=" + cliente.getNome() +
+                '}';
     }
 }

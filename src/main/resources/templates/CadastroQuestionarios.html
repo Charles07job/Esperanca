@@ -1,75 +1,89 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="LayoutPadrao.html">
+      layout:decorate="LayoutPadrao.html">
 <head>
-	<title>Questionário</title>
+    <title>Cadastro de Questionário</title>
 </head>
 
-
 <section layout:fragment="conteudo">
-    <form class="form-horizontal" method="POST" th:action="@{/formularios}" th:object="${formulario}">
-    
-    	<div layout:include="MensagemGeral"></div>
-    	<div layout:include="MensagemErro"></div>
-    	
-    
-    	<div class="panel panel-default">
-    		<div class="panel-heading">
-    		<div class="clearfix">
-	   			<h1 class="panel-title titulo-panel">Novo título</h1>
-	   			<a class="btn btn-link link-panel" th:href="@{/titulos}">Voltar para pesquisa</a>
-	   		</div>
-    			<h1 class="panel-title"></h1>
-    		</div>
-    		
-    		<div class="panel-body">
-    		<input type="hidden" th:field="*{codigo}"/>
-				<div class="form-group" th:classappend="${#fields.hasErrors('descricao')} ? has-error">
-					<label for="descricao" class="col-sm-2 control-label">Descrição</label>
-					<div class="col-sm-3"> 
-						<input type="text" class="form-control" id="descricao" th:field="*{descricao}" />
-					</div>
-				</div>
+    <form class="form-horizontal" method="POST" th:action="@{/questionarios}" th:object="${questionario}">
+
+        <div layout:insert="MensagemGeral"></div>
+        <div layout:insert="MensagemErro"></div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="clearfix">
+                    <h1 class="panel-title cliente-panel">Novo Questionário</h1>
+                    <a class="btn btn-link link-panel" th:href="@{/questionarios}">Voltar para pesquisa</a>
+                </div>
+                <h1 class="panel-title"></h1>
+            </div>
+
+            <div class="panel-body">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="container">
+                    <div class="row">
+                        Você separa seu lixo utilizando a coleta seletiva?
+                        <div class="form-check form-check-inline">
+                            <input type="radio" id="coletaSeletiva_sim" name="coletaSeletiva_sim" class="custom-control-input" value="10"
+                                   th:field="*{coletaSeletiva}">
+                            <label class="custom-control-label" for="coletaSeletiva_sim">Sim</label>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="coletaSeletiva_nao" name="coletaSeletiva_nao" class="custom-control-input" value="-10"
+                                       th:field="*{coletaSeletiva}">
+                                <label class="custom-control-label" for="coletaSeletiva_nao">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        Você separa seu lixo utilizando a coleta seletiva?
+                        <div class="form-check form-check-inline">
+                            <input type="radio" id="option1" name="option1" class="custom-control-input" value="10"
+                                   th:field="*{coletaSeletiva}">
+                            <label class="custom-control-label" for="option1">Sim</label>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="-10"
+                                       th:field="*{coletaSeletiva}">
+                                <label class="custom-control-label" for="option2">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        Você separa seu lixo utilizando a coleta seletiva?
+                        <div class="form-check form-check-inline">
+                            <input type="radio" id="option1" name="option1" class="custom-control-input" value="10"
+                                   th:field="*{coletaSeletiva}">
+                            <label class="custom-control-label" for="option1">Sim</label>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="-10"
+                                       th:field="*{coletaSeletiva}">
+                                <label class="custom-control-label" for="option2">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        Você separa seu lixo utilizando a coleta seletiva?
+                        <div class="form-check form-check-inline">
+                            <input type="radio" id="option1" name="option1" class="custom-control-input" value="10"
+                                   th:field="*{coletaSeletiva}">
+                            <label class="custom-control-label" for="option1">Sim</label>
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="option2" name="option2" class="custom-control-input" value="-10"
+                                       th:field="*{coletaSeletiva}">
+                                <label class="custom-control-label" for="option2">Não</label>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- Final do Container -->
                 <div class="form-group">
-					<label for="tipoLancamento" class="col-sm-2 control-label">Tipo de Lançamento</label>
-					<div class="col-sm-2">
-						<select class="form-control" th:field="*{tipoLancamento}">
-							<option th:each="tipo : ${todosTiposLancamentosTitulo}" th:value="${tipo}" th:text="${tipo.descricao}"></option>
-                    	</select>
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
-				</div>
-				<div class="form-group">
-					<label for="status" class="col-sm-2 control-label">Status</label>
-					<div class="col-sm-2">
-						<select class="form-control" th:field="*{status}">
-							<option th:each="status : ${todosStatusTitulo}" th:value="${status}" th:text="${status.descricao}"></option>
-                    	</select>
-                    </div>
-               </div>
-                
-                <div class="form-group" th:classappend="${#fields.hasErrors('dataVencimento')} ? has-error">
-					<label for="dataVencimento" class="col-sm-2 control-label">Data de vencimento</label>
-					<div class="col-sm-2">  
-						<input type="text" class="form-control"	id="dataVencimento" th:field="*{dataVencimento}"
-							data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
-							data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
-					</div>
-				</div>
-   				
-   				<div class="form-group" th:classappend="${#fields.hasErrors('valor')} ? has-error">
-					<label for="valor" class="col-sm-2 control-label">Valor</label>
-					<div class="col-sm-2">   
-						<input type="text" class="form-control js-currency" id="valor" th:field="*{valor}" />
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-primary">Salvar</button>
-					</div>
-				</div>
-			</div>
-    	</div>
+                </div>
+            </div>
+        </div>
     </form>
 </section>
 </html>
