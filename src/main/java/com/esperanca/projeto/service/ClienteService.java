@@ -22,11 +22,15 @@ public class ClienteService {
     }
 
     public List<Cliente> filtrar(ClienteFilter filtro) {
-        if(filtro.getCpf() == null) {
-        	return repository.findAll();
-        }else {
-        	return repository.findByCpfContaining(filtro.getCpf());
+        if (filtro.getCpf() == null) {
+            return listarTodosClientes();
+        } else {
+            return repository.findByCpfContaining(filtro.getCpf());
         }
+    }
+
+    public List<Cliente> listarTodosClientes() {
+        return repository.findAll();
     }
 
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
       layout:decorate="LayoutPadrao.html">
+
 <head>
     <title>Cadastro de Questionário</title>
 </head>
@@ -11,7 +12,6 @@
         <div layout:insert="MensagemGeral"></div>
         <div layout:insert="MensagemErro"></div>
 
-
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="clearfix">
@@ -20,83 +20,98 @@
                 </div>
                 <h1 class="panel-title"></h1>
             </div>
-
+            <!--Corpo do Painel -->
             <div class="panel-body">
                 <input type="hidden" th:field="*{id}"/>
                 <div class="container">
                     <div class="row">
-                        Você separa seu lixo utilizando a coleta seletiva?
+                        <div class=".col-xs-12">
+                            <label for="cliente" class="col-sm-2 control-label">Selecione o Cliente</label>
+                            <div class="col-sm-2">
+                                <select class="form-control" th:field="*{cliente}" id="cliente">
+                                    <option th:each="cliente : ${todosOsClientes}" th:value="${cliente.id}"
+                                            th:text="${cliente.nome}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <label>Você separa seu lixo utilizando a coleta seletiva?</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" id="coletaSeletiva_sim" name="coletaSeletiva_sim" class="custom-control-input" value="10"
-                                   th:field="*{coletaSeletiva}">
+                            <input type="radio" id="coletaSeletiva_sim" name="coletaSeletiva_sim" class="custom-control-input" value="10" th:field="*{coletaSeletiva}" >
                             <label class="custom-control-label" for="coletaSeletiva_sim">Sim</label>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="coletaSeletiva_nao" name="coletaSeletiva_nao" class="custom-control-input" value="-10"
-                                       th:field="*{coletaSeletiva}">
+                                <input type="radio" id="coletaSeletiva_nao" name="coletaSeletiva_nao" class="custom-control-input" value="-10" th:field="*{coletaSeletiva}">
                                 <label class="custom-control-label" for="coletaSeletiva_nao">Não</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        Participa de campanhas ambientais contra produto químicos?
+                        <label>Participa de campanhas ambientais contra produto químicos?</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" id="campanhaContraPoluicao_sim" name="campanhaContraPoluicao_sim" class="custom-control-input" value="10"
-                                   th:field="*{campanhaContraPoluicao}">
+                            <input type="radio" id="campanhaContraPoluicao_sim" name="campanhaContraPoluicao_sim"
+                                   class="custom-control-input" value="10" th:field="*{campanhaContraPoluicao}" checked="true">
                             <label class="custom-control-label" for="campanhaContraPoluicao_sim">Sim</label>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="campanhaContraPoluicao_nao" name="campanhaContraPoluicao_nao" class="custom-control-input" value="-10"
-                                       th:field="*{campanhaContraPoluicao}">
+                                <input type="radio" id="campanhaContraPoluicao_nao" name="campanhaContraPoluicao_nao"
+                                       class="custom-control-input" value="-10" th:field="*{campanhaContraPoluicao}">
                                 <label class="custom-control-label" for="campanhaContraPoluicao_nao">Não</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <p>"Participa de ações de reflorestamento?"</p>
+                        <label>Participa de ações de reflorestamento?</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" id="campanhaReflorestamento_sim" name="campanhaReflorestamento_sim" class="custom-control-input" value="10"
-                                   th:field="*{campanhaReflorestamento}">
+                            <input type="radio" id="campanhaReflorestamento_sim" name="campanhaReflorestamento_sim"
+                                   class="custom-control-input" value="10" th:field="*{campanhaReflorestamento}" checked="true">
                             <label class="custom-control-label" for="campanhaReflorestamento_sim">Sim</label>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="campanhaReflorestamento_nao" name="option2" class="custom-control-input" value="-10"
-                                       th:field="*{campanhaReflorestamento}">
+                                <input type="radio" id="campanhaReflorestamento_nao" name="option2" class="custom-control-input"
+                                       value="-10" th:field="*{campanhaReflorestamento}">
                                 <label class="custom-control-label" for="campanhaReflorestamento_nao">Não</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        Você realiza econimia no consumo de água?
+                        <label>Você realiza econimia no consumo de água?</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" id="consumoDeAgua_sim" name="consumoDeAgua_sim" class="custom-control-input" value="10"
-                                   th:field="*{consumoDeAgua}">
+                            <input type="radio" id="consumoDeAgua_sim" name="consumoDeAgua_sim" class="custom-control-input"
+                                   value="10" th:field="*{consumoDeAgua}" checked="true">
                             <label class="custom-control-label" for="consumoDeAgua_sim">Sim</label>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="consumoDeAgua_nao" name="consumoDeAgua_nao" class="custom-control-input" value="-10"
-                                       th:field="*{consumoDeAgua}">
+                                <input type="radio" id="consumoDeAgua_nao" name="consumoDeAgua_nao" class="custom-control-input"
+                                       value="-10" th:field="*{consumoDeAgua}">
                                 <label class="custom-control-label" for="consumoDeAgua_nao">Não</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        você ainda utiliza sacolas plásticas?
+                        <label>Você ainda utiliza sacolas plásticas?</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" id="utilizaSacolaPlastica_sim" name="utilizaSacolaPlastica_sim" class="custom-control-input" value="10"
-                                   th:field="*{utilizaSacolaPlastica}">
+                            <input type="radio" id="utilizaSacolaPlastica_sim" name="utilizaSacolaPlastica_sim"
+                                   class="custom-control-input" value="10" th:field="*{utilizaSacolaPlastica}" checked="true">
                             <label class="custom-control-label" for="utilizaSacolaPlastica_sim">Sim</label>
                             <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" id="utilizaSacolaPlastica_nao" name="utilizaSacolaPlastica_nao" class="custom-control-input" value="-10"
-                                       th:field="*{utilizaSacolaPlastica}">
+                                <input type="radio" id="utilizaSacolaPlastica_nao" name="utilizaSacolaPlastica_nao"
+                                       class="custom-control-input" value="-10" th:field="*{utilizaSacolaPlastica}">
                                 <label class="custom-control-label" for="utilizaSacolaPlastica_nao">Não</label>
                             </div>
                         </div>
-                </div><!-- Final do Container -->
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                    </div>
+
                 </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
             </div>
+            <!-- Fim do corpo do painel -->
         </div>
-    </div>
     </form>
 </section>
+
 </html>

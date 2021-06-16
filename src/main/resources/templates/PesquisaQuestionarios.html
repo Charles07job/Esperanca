@@ -37,26 +37,20 @@
       			
       				<tr>
       					<th class="text-center col-md-1">#</th>
-      					<th class="text-center col-md-3">Nome</th>
-      					<th class="col-md-1"></th>
+      					<th class="text-center col-md-2">Nome</th>
+						<th class="text-center col-md-3">Média</th>
+						<th class="text-center col-md-3">Status</th>
       				</tr>
       			</thead>
       			<tbody>
       				<tr th:each="questionario : ${questionarios}">
       					<td class="text-center" th:text="${questionario.id}"></td>
-      					<td th:text="${questionario.cliente.nome}"></td>
-      					<td class="text-center">
-	   						<a class="btn btn-link btn-xs" th:href="@{/questionarios/{id}(id=${questionario.id})}" th:attr="data-codigo=${questionario.id}"
-	   							title="Editar" rel="tooltip" data-placement="top">
-	   							<span class="glyphicon glyphicon-pencil"></span>
-	   						</a>
-	   						<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal"
-	   								th:attr="data-codigo=${questionario.id}, data-descricao=${questionario.cliente.nome}"
-	   								title="Excluir" rel="tooltip" data-placement="top">
-	   								
-	   							<span class="glyphicon glyphicon-trash"></span>
-	   						</a>
-	   					</td>
+      					<td class="text-center" th:text="${questionario.cliente.nome}"></td>
+						<td class="text-center" th:text="${questionario.media}"></td>
+						<td class="text-center">
+      						<span th:text="${questionario.status.descricao}" class="text"
+								  th:classappend="${questionario.aprovado ? 'text-success' : 'text-danger'}"></span>
+						</td>
       				</tr>
       				<tr th:if="${#lists.isEmpty(questionarios)}">
       					<td colspan="9">Nenhum questionário foi encontrado</td>

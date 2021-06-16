@@ -2,6 +2,8 @@ package com.esperanca.projeto.controller;
 
 import java.util.List;
 
+import com.esperanca.projeto.model.Cliente;
+import com.esperanca.projeto.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
@@ -25,6 +27,8 @@ public class QuestionarioController {
     private static final String CADASTRO_QUESTIONARIO_VIEW = "CadastroQuestionarios";
     @Autowired
     private QuestionarioService questionarioService;
+    @Autowired
+    private ClienteService clienteService;
 
     @RequestMapping("/novo")
     public ModelAndView novo() {
@@ -38,7 +42,6 @@ public class QuestionarioController {
         if (errors.hasErrors()) {
             return CADASTRO_QUESTIONARIO_VIEW;
         }
-        System.out.println(questionario);
         questionarioService.salvar(questionario);
         attributes.addFlashAttribute("mensagem", "Questionario salvo com sucesso!");
         return "redirect:/questionarios/novo";
@@ -67,5 +70,14 @@ public class QuestionarioController {
         attributes.addFlashAttribute("mensagem", "Questionário excluído com sucesso!");
         return "redirect:/questionarios";
     }
+
+    @ModelAttribute("todosOsClientes")
+    public List<Cliente> todosOsClientes() {
+        return clienteService.listarTodosClientes();
+    }
+
+
+
+
 
 }
