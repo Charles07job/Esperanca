@@ -52,7 +52,7 @@ public class QuestionarioService {
     }
 
     private Double somaPontos(Questionario questionario){
-        return questionario != null ? questionario.getColetaSeletiva()+questionario.getCampanhaContraPoluicao()+questionario.getCampanhaReflorestamento()+questionario.getConsumoDeAgua()+questionario.getUtilizaSacolaPlastica() : 0.0;
+        return questionario != null ? (questionario.getColetaSeletiva()+questionario.getCampanhaContraPoluicao()+questionario.getCampanhaReflorestamento()+questionario.getConsumoDeAgua()+questionario.getUtilizaSacolaPlastica()):5.0;
     }
 
     private void verificaStatus(Questionario questionario){
